@@ -1,0 +1,324 @@
+/* ============================================
+   NAVBAR STYLES
+   ============================================ */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: var(--coffee-dark);
+    color: var(--text-light);
+    padding: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ============================================
+   HAMBURGER BUTTON
+   ============================================ */
+.hamburger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 40px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.hamburger-btn span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--coffee-cream);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.hamburger-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ============================================
+   BRAND LOGO
+   ============================================ */
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--coffee-cream);
+    transition: all 0.3s ease;
+}
+
+.brand-logo i {
+    color: var(--coffee-accent);
+}
+
+.brand-logo:hover {
+    transform: scale(1.05);
+    color: var(--coffee-light);
+}
+
+/* ============================================
+   SIDEBAR MENU
+   ============================================ */
+.sidebar {
+    position: fixed;
+    left: -350px;
+    top: 0;
+    width: 350px;
+    height: 100vh;
+    background-color: var(--coffee-dark);
+    color: var(--text-light);
+    padding: 2rem 0;
+    z-index: 1001;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--coffee-medium);
+    padding-bottom: 1rem;
+}
+
+.sidebar-header h2 {
+    font-size: 1.5rem;
+    color: var(--coffee-cream);
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    color: var(--coffee-cream);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    color: var(--coffee-accent);
+    transform: rotate(90deg);
+}
+
+/* ============================================
+   SIDEBAR CONTENT
+   ============================================ */
+.sidebar-content {
+    padding: 0 1rem;
+}
+
+.category {
+    margin-bottom: 0.5rem;
+}
+
+.category-btn {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: transparent;
+    color: var(--coffee-cream);
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-btn:hover {
+    background-color: var(--coffee-brown);
+    color: var(--text-light);
+    padding-left: 2rem;
+}
+
+.category-btn i:first-child {
+    margin-right: 12px;
+}
+
+.category-btn i:last-child {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.category-btn.active i:last-child {
+    transform: rotate(180deg);
+}
+
+/* ============================================
+   SUBMENU
+   ============================================ */
+.submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: rgba(92, 64, 51, 0.3);
+    border-radius: 8px;
+    margin: 0.5rem 0.5rem 0.5rem 0;
+}
+
+.submenu.active {
+    max-height: 500px;
+}
+
+.submenu-item {
+    display: block;
+    padding: 0.75rem 1.5rem 0.75rem 3rem;
+    color: var(--coffee-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    font-size: 0.95rem;
+}
+
+.submenu-item:hover {
+    color: var(--coffee-cream);
+    background-color: rgba(92, 64, 51, 0.4);
+    border-left-color: var(--coffee-accent);
+    padding-left: 3.5rem;
+}
+
+.submenu-item i {
+    margin-right: 8px;
+    color: var(--coffee-accent);
+}
+
+/* ============================================
+   SIDEBAR FOOTER
+   ============================================ */
+.sidebar-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    border-top: 2px solid var(--coffee-medium);
+    background-color: rgba(44, 24, 16, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sidebar-footer a {
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    color: var(--coffee-cream);
+    background-color: var(--coffee-brown);
+    text-align: center;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.sidebar-footer a:hover {
+    background-color: var(--coffee-accent);
+    color: var(--text-light);
+    transform: translateY(-2px);
+}
+
+.sidebar-footer i {
+    margin-right: 8px;
+}
+
+/* ============================================
+   SIDEBAR OVERLAY
+   ============================================ */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.active {
+    opacity: 0.7;
+    pointer-events: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 300px;
+        left: -300px;
+    }
+
+    .navbar-container {
+        padding: 0.75rem 15px;
+    }
+
+    .brand-logo {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        left: -100%;
+    }
+
+    .hamburger-btn {
+        width: 35px;
+        height: 25px;
+    }
+
+    .hamburger-btn span {
+        height: 2.5px;
+    }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.sidebar.active {
+    animation: slideInLeft 0.3s ease;
+}

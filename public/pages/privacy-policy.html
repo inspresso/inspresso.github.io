@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Inspresso</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <style>
+        .policy-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 20px 2rem;
+        }
+
+        .policy-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .policy-header h1 {
+            font-size: 2.5rem;
+            color: var(--coffee-dark);
+            margin-bottom: 1rem;
+        }
+
+        .policy-header p {
+            color: var(--coffee-medium);
+            font-size: 0.95rem;
+        }
+
+        .table-of-contents {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--coffee-accent);
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .table-of-contents h2 {
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .table-of-contents ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .table-of-contents li {
+            margin-bottom: 0.75rem;
+        }
+
+        .table-of-contents a {
+            color: var(--coffee-accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .table-of-contents a:hover {
+            color: var(--coffee-brown);
+            text-decoration: underline;
+            padding-left: 5px;
+        }
+
+        .policy-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .policy-section h2 {
+            color: var(--coffee-dark);
+            margin-top: 0;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .policy-section h3 {
+            color: var(--coffee-brown);
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .policy-section p,
+        .policy-section li {
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .policy-section ul,
+        .policy-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .policy-section li {
+            margin-bottom: 0.75rem;
+        }
+
+        .highlight-box {
+            background-color: var(--coffee-bg);
+            padding: 1.5rem;
+            border-left: 4px solid var(--coffee-accent);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box strong {
+            color: var(--coffee-dark);
+        }
+
+        .breadcrumb {
+            max-width: 900px;
+            margin: 2rem auto 0;
+            padding: 0 20px;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            font-size: 0.95rem;
+            color: var(--coffee-medium);
+        }
+
+        .breadcrumb a {
+            color: var(--coffee-accent);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--coffee-brown);
+        }
+
+        .last-updated {
+            text-align: center;
+            color: var(--coffee-medium);
+            font-size: 0.9rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .policy-container {
+                padding: 2rem 20px 1rem;
+            }
+
+            .policy-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .policy-section {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .policy-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .policy-section h3 {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .policy-container {
+                padding: 1.5rem 15px 0.5rem;
+            }
+
+            .policy-header h1 {
+                font-size: 1.4rem;
+            }
+
+            .policy-header p {
+                font-size: 0.85rem;
+            }
+
+            .table-of-contents {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .policy-section {
+                padding: 1.25rem;
+            }
+
+            .highlight-box {
+                padding: 1rem;
+            }
+
+            .breadcrumb {
+                font-size: 0.8rem;
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <button class="hamburger-btn" id="hamburgerBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="brand-logo">
+                <i class="fas fa-coffee"></i>
+                <span>Inspresso</span>
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>Categories</h2>
+                <button class="close-btn" id="closeBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="sidebar-content">
+                <div class="category">
+                    <button class="category-btn" data-category="education">
+                        <i class="fas fa-book"></i>
+                        <span>Educational</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="submenu">
+                        <a href="/pages/blog-listing.html?category=education&subcategory=primary" class="submenu-item">
+                            <i class="fas fa-star"></i> Primary
+                        </a>
+                        <a href="/pages/blog-listing.html?category=education&subcategory=secondary" class="submenu-item">
+                            <i class="fas fa-star"></i> Secondary
+                        </a>
+                    </div>
+                </div>
+
+                <div class="category">
+                    <button class="category-btn" data-category="entertainment">
+                        <i class="fas fa-theater-masks"></i>
+                        <span>Entertaining</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="submenu">
+                        <a href="/pages/blog-listing.html?category=entertainment&subcategory=musical" class="submenu-item">
+                            <i class="fas fa-music"></i> Musical
+                        </a>
+                        <a href="/pages/blog-listing.html?category=entertainment&subcategory=theatre" class="submenu-item">
+                            <i class="fas fa-theater-masks"></i> Theatre
+                        </a>
+                        <a href="/pages/blog-listing.html?category=entertainment&subcategory=dancing" class="submenu-item">
+                            <i class="fas fa-person-dancing"></i> Dancing
+                        </a>
+                        <a href="/pages/blog-listing.html?category=entertainment&subcategory=art" class="submenu-item">
+                            <i class="fas fa-palette"></i> Art
+                        </a>
+                    </div>
+                </div>
+
+                <div class="category">
+                    <button class="category-btn" data-category="lifestyle">
+                        <i class="fas fa-heart"></i>
+                        <span>Lifestyle</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="submenu">
+                        <a href="/pages/blog-listing.html?category=lifestyle&subcategory=beauty" class="submenu-item">
+                            <i class="fas fa-spa"></i> Beauty
+                        </a>
+                        <a href="/pages/blog-listing.html?category=lifestyle&subcategory=mental-health" class="submenu-item">
+                            <i class="fas fa-brain"></i> Mental Health
+                        </a>
+                        <a href="/pages/blog-listing.html?category=lifestyle&subcategory=health" class="submenu-item">
+                            <i class="fas fa-dumbbell"></i> Health
+                        </a>
+                        <a href="/pages/blog-listing.html?category=lifestyle&subcategory=brain-improvements" class="submenu-item">
+                            <i class="fas fa-lightbulb"></i> Brain Improvements
+                        </a>
+                    </div>
+                </div>
+
+                <div class="category">
+                    <button class="category-btn" data-category="scientific">
+                        <i class="fas fa-flask"></i>
+                        <span>Scientific</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="submenu">
+                        <a href="/pages/blog-listing.html?category=scientific&subcategory=chemistry" class="submenu-item">
+                            <i class="fas fa-flask-vial"></i> Chemistry
+                        </a>
+                        <a href="/pages/blog-listing.html?category=scientific&subcategory=physics" class="submenu-item">
+                            <i class="fas fa-atom"></i> Physics
+                        </a>
+                        <a href="/pages/blog-listing.html?category=scientific&subcategory=biology" class="submenu-item">
+                            <i class="fas fa-dna"></i> Biology
+                        </a>
+                        <a href="/pages/blog-listing.html?category=scientific&subcategory=mathematics" class="submenu-item">
+                            <i class="fas fa-calculator"></i> Mathematics
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sidebar-footer">
+                    <a href="/pages/login.html" class="login-link">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                    <a href="/pages/about-us.html" class="about-link">
+                        <i class="fas fa-info-circle"></i> About Us
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>Privacy Policy</span>
+    </div>
+
+    <!-- Privacy Policy Content -->
+    <div class="policy-container">
+        <div class="policy-header">
+            <h1>Privacy Policy & Terms of Service</h1>
+            <p>Effective Date: January 1, 2025</p>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="table-of-contents">
+            <h2><i class="fas fa-list"></i> Table of Contents</h2>
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#information-collection">Information Collection</a></li>
+                <li><a href="#information-usage">How We Use Information</a></li>
+                <li><a href="#information-protection">Information Protection</a></li>
+                <li><a href="#user-rights">Your Rights</a></li>
+                <li><a href="#cookies">Cookies & Tracking</a></li>
+                <li><a href="#third-party">Third-Party Services</a></li>
+                <li><a href="#changes">Changes to Policy</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Introduction -->
+        <div class="policy-section" id="introduction">
+            <h2>1. Introduction</h2>
+            <p>
+                Welcome to Inspresso ("we", "our", or "us"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.
+            </p>
+            <p>
+                Please read this Privacy Policy carefully. If you do not agree with our policies and practices, please do not use our site.
+            </p>
+        </div>
+
+        <!-- Information Collection -->
+        <div class="policy-section" id="information-collection">
+            <h2>2. Information We Collect</h2>
+            
+            <h3>Personal Information</h3>
+            <p>We may collect personal information that you voluntarily provide, including:</p>
+            <ul>
+                <li>Name and email address during registration or newsletter signup</li>
+                <li>Password and account credentials (encrypted)</li>
+                <li>User profile information</li>
+                <li>Comments and feedback on blog posts</li>
+            </ul>
+
+            <h3>Automatic Information</h3>
+            <p>We automatically collect certain information about your device and usage, including:</p>
+            <ul>
+                <li>IP address and device type</li>
+                <li>Browser type and version</li>
+                <li>Pages you visit and time spent</li>
+                <li>Referral source and navigation patterns</li>
+            </ul>
+
+            <h3>Cookie Information</h3>
+            <p>We use cookies to enhance your experience and analyze site usage.</p>
+        </div>
+
+        <!-- Information Usage -->
+        <div class="policy-section" id="information-usage">
+            <h2>3. How We Use Your Information</h2>
+            <p>We use the information we collect for:</p>
+            <ul>
+                <li>Providing, improving, and personalizing our services</li>
+                <li>Processing user accounts and transactions</li>
+                <li>Sending newsletters and promotional communications (with consent)</li>
+                <li>Responding to inquiries and providing customer support</li>
+                <li>Analyzing usage patterns and improving user experience</li>
+                <li>Preventing fraud and ensuring platform security</li>
+                <li>Complying with legal obligations</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>Note:</strong> We will never sell your personal information to third parties without your explicit consent.
+            </div>
+        </div>
+
+        <!-- Information Protection -->
+        <div class="policy-section" id="information-protection">
+            <h2>4. Information Security</h2>
+            <p>
+                We implement appropriate technical and organizational measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction.
+            </p>
+            <p>
+                However, no method of transmission over the internet is 100% secure. While we strive to protect your information, we cannot guarantee absolute security.
+            </p>
+        </div>
+
+        <!-- User Rights -->
+        <div class="policy-section" id="user-rights">
+            <h2>5. Your Privacy Rights</h2>
+            <p>Depending on your location, you may have the following rights:</p>
+            <ul>
+                <li><strong>Right to Access:</strong> Request access to your personal data</li>
+                <li><strong>Right to Correction:</strong> Request correction of inaccurate data</li>
+                <li><strong>Right to Deletion:</strong> Request deletion of your data</li>
+                <li><strong>Right to Opt-Out:</strong> Unsubscribe from communications</li>
+                <li><strong>Right to Portability:</strong> Request your data in portable format</li>
+            </ul>
+
+            <p>To exercise any of these rights, please contact us using the information provided in the Contact Us section.</p>
+        </div>
+
+        <!-- Cookies -->
+        <div class="policy-section" id="cookies">
+            <h2>6. Cookies and Tracking Technologies</h2>
+            <p>
+                We use cookies and similar tracking technologies to enhance your experience, track usage patterns, and remember your preferences.
+            </p>
+            <p>
+                You can control cookie settings through your browser. Disabling cookies may affect some functionality of our website.
+            </p>
+            <h3>Types of Cookies We Use</h3>
+            <ul>
+                <li><strong>Essential Cookies:</strong> Required for site functionality</li>
+                <li><strong>Analytics Cookies:</strong> Track usage and user behavior</li>
+                <li><strong>Preference Cookies:</strong> Remember your preferences</li>
+                <li><strong>Marketing Cookies:</strong> Deliver relevant content (with consent)</li>
+            </ul>
+        </div>
+
+        <!-- Third-Party Services -->
+        <div class="policy-section" id="third-party">
+            <h2>7. Third-Party Services</h2>
+            <p>
+                Our website may contain links to third-party websites. We are not responsible for their privacy practices. We encourage you to review their privacy policies before providing any personal information.
+            </p>
+            <h3>Third-Party Integrations</h3>
+            <ul>
+                <li>Google Analytics for usage tracking</li>
+                <li>Social media platforms for authentication</li>
+                <li>Email services for newsletter delivery</li>
+            </ul>
+        </div>
+
+        <!-- Policy Changes -->
+        <div class="policy-section" id="changes">
+            <h2>8. Changes to This Privacy Policy</h2>
+            <p>
+                We may update this Privacy Policy from time to time. We will notify you of significant changes by posting the updated policy on our website and updating the effective date.
+            </p>
+            <p>
+                Your continued use of the website following the posting of revised Privacy Policy means that you accept and agree to the changes.
+            </p>
+        </div>
+
+        <!-- Contact -->
+        <div class="policy-section" id="contact">
+            <h2>9. Contact Us</h2>
+            <p>If you have questions about this Privacy Policy or our privacy practices, please contact us:</p>
+            <ul>
+                <li><strong>Email:</strong> privacy@inspresso.com</li>
+                <li><strong>WhatsApp:</strong> +91 9876543210</li>
+                <li><strong>Telegram:</strong> @inspresso_support</li>
+                <li><strong>Address:</strong> Inspresso Creative Studios, India</li>
+            </ul>
+        </div>
+
+        <div class="last-updated">
+            <p>Last Updated: January 1, 2025</p>
+            <p>This policy is subject to change at any time without prior notice</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section social-links">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="https://wa.me/919876543210" target="_blank" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://instagram.com/inspresso" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://t.me/inspresso" target="_blank" title="Telegram">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section quick-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/pages/about-us.html">About Us</a></li>
+                    <li><a href="/pages/contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section newsletter">
+                <h3>Newsletter</h3>
+                <form id="newsletterForm">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Inspresso. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/js/navbar.js"></script>
+    <script src="/js/policy.js"></script>
+</body>
+</html>

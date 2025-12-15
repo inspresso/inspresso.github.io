@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Article - Inspresso</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <style>
+        .full-blog-container {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 20px;
+        }
+
+        .blog-header {
+            margin-bottom: 3rem;
+            animation: fadeInDown 0.6s ease;
+        }
+
+        .blog-header h1 {
+            font-size: 2.8rem;
+            color: var(--coffee-dark);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+            color: var(--coffee-medium);
+            font-size: 0.95rem;
+        }
+
+        .blog-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .blog-meta-item i {
+            color: var(--coffee-accent);
+            font-size: 1.1rem;
+        }
+
+        .blog-thumbnail {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--coffee-medium) 0%, var(--coffee-light) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-hover);
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .blog-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .blog-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-content h2 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--coffee-dark);
+        }
+
+        .blog-content h3 {
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--coffee-brown);
+        }
+
+        .blog-content ul,
+        .blog-content ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-content strong {
+            color: var(--coffee-dark);
+            font-weight: 700;
+        }
+
+        .blog-content em {
+            color: var(--coffee-brown);
+            font-style: italic;
+        }
+
+        .blog-footer {
+            padding: 2rem;
+            background-color: var(--coffee-bg);
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--coffee-accent);
+        }
+
+        .blog-footer h3 {
+            margin-bottom: 1rem;
+            color: var(--coffee-dark);
+        }
+
+        .blog-footer p {
+            margin-bottom: 0;
+            color: var(--text-dark);
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .action-btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 12px 20px;
+            border: 2px solid var(--border-color);
+            background-color: white;
+            color: var(--text-dark);
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .action-btn:hover {
+            background-color: var(--coffee-accent);
+            color: var(--text-light);
+            border-color: var(--coffee-accent);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .action-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            left: 30px;
+            bottom: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--coffee-accent);
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 500;
+            box-shadow: var(--shadow);
+            border: none;
+            font-size: 1.3rem;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-to-top:hover {
+            background-color: var(--coffee-brown);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Comments Section */
+        .comments-section {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 3px solid var(--border-color);
+        }
+
+        .comments-section h2 {
+            margin-bottom: 2rem;
+        }
+
+        .comment-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--coffee-dark);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--coffee-accent);
+            box-shadow: 0 0 10px rgba(193, 122, 92, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background-color: var(--coffee-accent);
+            color: var(--text-light);
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--coffee-brown);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Comments List */
+        .comments-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .comment {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--coffee-accent);
+            animation: slideInUp 0.5s ease;
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .comment-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .comment-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--coffee-medium) 0%, var(--coffee-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-weight: 700;
+        }
+
+        .comment-name {
+            font-weight: 600;
+            color: var(--coffee-dark);
+        }
+
+        .comment-date {
+            color: var(--coffee-medium);
+            font-size: 0.9rem;
+        }
+
+        .comment-text {
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .no-comments {
+            text-align: center;
+            padding: 3rem 2rem;
+            background-color: var(--coffee-bg);
+            border-radius: 12px;
+            color: var(--coffee-medium);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 900px;
+            margin: 2rem auto 0;
+            padding: 0 20px;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            font-size: 0.95rem;
+            color: var(--coffee-medium);
+        }
+
+        .breadcrumb a {
+            color: var(--coffee-accent);
+            transition: all 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--coffee-brown);
+        }
+
+        .breadcrumb-separator {
+            color: var(--coffee-medium);
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--coffee-accent);
+            color: var(--text-light);
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-hover);
+            animation: slideInRight 0.3s ease;
+            z-index: 2000;
+        }
+
+        .toast.success {
+            background-color: #27ae60;
+        }
+
+        .toast.error {
+            background-color: #e74c3c;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .full-blog-container {
+                margin: 2rem auto;
+            }
+
+            .blog-header h1 {
+                font-size: 2rem;
+            }
+
+            .blog-meta {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .blog-thumbnail {
+                height: 250px;
+                font-size: 3rem;
+                margin-bottom: 2rem;
+            }
+
+            .blog-content {
+                font-size: 1rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+
+            .action-btn {
+                min-width: auto;
+            }
+
+            .scroll-to-top {
+                width: 45px;
+                height: 45px;
+                left: 20px;
+                bottom: 20px;
+                font-size: 1rem;
+            }
+
+            .comment {
+                padding: 1.5rem;
+            }
+
+            .comment-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .full-blog-container {
+                padding: 0 15px;
+            }
+
+            .blog-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .blog-thumbnail {
+                height: 200px;
+                font-size: 2.5rem;
+            }
+
+            .action-buttons {
+                padding: 1rem;
+            }
+
+            .scroll-to-top {
+                width: 40px;
+                height: 40px;
+                left: 15px;
+                bottom: 15px;
+            }
+
+            .breadcrumb {
+                font-size: 0.8rem;
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <button class="hamburger-btn" id="hamburgerBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="brand-logo">
+                <i class="fas fa-coffee"></i>
+                <span>Inspresso</span>
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>Categories</h2>
+                <button class="close-btn" id="closeBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="sidebar-content">
+                <div class="category">
+                    <button class="category-btn" data-category="education">
+                        <i class="fas fa-book"></i>
+                        <span>Educational</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="submenu">
+                        <a href="/pages/blog-listing.html?category=education&subcategory=primary" class="submenu-item">
+                            <i class="fas fa-star"></i> Primary
+                        </a>
+                        <a href="/pages/blog-listing.html?category=education&subcategory=secondary" class="submenu-item">
+                            <i class="fas fa-star"></i> Secondary
+                        </a>
+                    </div>
+                </div>
+
+                <div class="category">
+                    <button class="category-btn" data-category="entertainment">
+                        <i class="fas fa-theater-masks"></i>
+                        <span>Entertaining</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="submenu">
+                        <a href="/pages/blog-listing.html?category=entertainment&subcategory=musical" class="submenu-item">
+                            <i class="fas fa-music"></i> Musical
+                        </a>
+                        <a href="/pages/blog-listing.html?category=entertainment&subcategory=theatre" class="submenu-item">
+                            <i class="fas fa-theater-masks"></i> Theatre
+                        </a>
+                        <a href="/pages/blog-listing.html?category=entertainment&subcategory=dancing" class="submenu-item">
+                            <i class="fas fa-person-dancing"></i> Dancing
+                        </a>
+                        <a href="/pages/blog-listing.html?category=entertainment&subcategory=art" class="submenu-item">
+                            <i class="fas fa-palette"></i> Art
+                        </a>
+                    </div>
+                </div>
+
+                <div class="category">
+                    <button class="category-btn" data-category="lifestyle">
+                        <i class="fas fa-heart"></i>
+                        <span>Lifestyle</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="submenu">
+                        <a href="/pages/blog-listing.html?category=lifestyle&subcategory=beauty" class="submenu-item">
+                            <i class="fas fa-spa"></i> Beauty
+                        </a>
+                        <a href="/pages/blog-listing.html?category=lifestyle&subcategory=mental-health" class="submenu-item">
+                            <i class="fas fa-brain"></i> Mental Health
+                        </a>
+                        <a href="/pages/blog-listing.html?category=lifestyle&subcategory=health" class="submenu-item">
+                            <i class="fas fa-dumbbell"></i> Health
+                        </a>
+                        <a href="/pages/blog-listing.html?category=lifestyle&subcategory=brain-improvements" class="submenu-item">
+                            <i class="fas fa-lightbulb"></i> Brain Improvements
+                        </a>
+                    </div>
+                </div>
+
+                <div class="category">
+                    <button class="category-btn" data-category="scientific">
+                        <i class="fas fa-flask"></i>
+                        <span>Scientific</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="submenu">
+                        <a href="/pages/blog-listing.html?category=scientific&subcategory=chemistry" class="submenu-item">
+                            <i class="fas fa-flask-vial"></i> Chemistry
+                        </a>
+                        <a href="/pages/blog-listing.html?category=scientific&subcategory=physics" class="submenu-item">
+                            <i class="fas fa-atom"></i> Physics
+                        </a>
+                        <a href="/pages/blog-listing.html?category=scientific&subcategory=biology" class="submenu-item">
+                            <i class="fas fa-dna"></i> Biology
+                        </a>
+                        <a href="/pages/blog-listing.html?category=scientific&subcategory=mathematics" class="submenu-item">
+                            <i class="fas fa-calculator"></i> Mathematics
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sidebar-footer">
+                    <a href="/pages/login.html" class="login-link">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                    <a href="/pages/about-us.html" class="about-link">
+                        <i class="fas fa-info-circle"></i> About Us
+                    </a>
+                    <a href="/pages/privacy-policy.html" class="privacy-link">
+                        <i class="fas fa-shield-alt"></i> Privacy Policy
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="/" id="categoryLink">Category</a>
+        <span class="breadcrumb-separator">/</span>
+        <span id="blogTitle">Blog</span>
+    </div>
+
+    <!-- Main Content -->
+    <div class="full-blog-container">
+        <!-- Blog Header -->
+        <div class="blog-header">
+            <h1 id="fullBlogTitle">Blog Title</h1>
+            <div class="blog-meta">
+                <div class="blog-meta-item">
+                    <i class="fas fa-user"></i>
+                    <span id="fullBlogAuthor">Author</span>
+                </div>
+                <div class="blog-meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span id="fullBlogDate">Date</span>
+                </div>
+                <div class="blog-meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span id="fullBlogReadTime">5 min read</span>
+                </div>
+                <div class="blog-meta-item">
+                    <i class="fas fa-tag"></i>
+                    <span id="fullBlogCategory">Category</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Thumbnail -->
+        <div class="blog-thumbnail" id="blogThumbnail">📄</div>
+
+        <!-- Blog Content -->
+        <div class="blog-content" id="fullBlogContent">
+            <p>Blog content will be loaded here...</p>
+        </div>
+
+        <!-- Blog Footer -->
+        <div class="blog-footer">
+            <h3>About the Author</h3>
+            <p id="authorBio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="action-btn" id="shareBtn" title="Share this blog">
+                <i class="fas fa-share-alt"></i>
+                <span>Share</span>
+            </button>
+            <button class="action-btn" id="copyBtn" title="Copy link">
+                <i class="fas fa-link"></i>
+                <span>Copy Link</span>
+            </button>
+            <button class="action-btn" id="printBtn" title="Print blog">
+                <i class="fas fa-print"></i>
+                <span>Print</span>
+            </button>
+            <button class="action-btn" id="reportBtn" title="Report issue">
+                <i class="fas fa-flag"></i>
+                <span>Report</span>
+            </button>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+            <h2><i class="fas fa-comments"></i> Comments</h2>
+
+            <!-- Comment Form -->
+            <div class="comment-form">
+                <form id="commentForm">
+                    <div class="form-group">
+                        <label for="commentName">Name *</label>
+                        <input type="text" id="commentName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="commentEmail">Email *</label>
+                        <input type="email" id="commentEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="commentText">Comment *</label>
+                        <textarea id="commentText" name="comment" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Post Comment</button>
+                </form>
+            </div>
+
+            <!-- Comments List -->
+            <div class="comments-list" id="commentsList">
+                <!-- Comments will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTopBtn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section social-links">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="https://wa.me/919876543210" target="_blank" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://instagram.com/inspresso" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://t.me/inspresso" target="_blank" title="Telegram">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section quick-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/pages/about-us.html">About Us</a></li>
+                    <li><a href="/pages/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="/pages/contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section newsletter">
+                <h3>Newsletter</h3>
+                <form id="newsletterForm">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Inspresso. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/js/navbar.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/full-blog.js"></script>
+</body>
+</html>

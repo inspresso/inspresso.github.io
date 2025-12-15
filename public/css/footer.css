@@ -1,0 +1,264 @@
+/* ============================================
+   FOOTER STYLES
+   ============================================ */
+.footer {
+    background-color: var(--coffee-dark);
+    color: var(--text-light);
+    padding: 4rem 20px 2rem;
+    margin-top: 4rem;
+    border-top: 3px solid var(--coffee-accent);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-section h3 {
+    color: var(--coffee-cream);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-section h3::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 20px;
+    background-color: var(--coffee-accent);
+    border-radius: 2px;
+}
+
+/* ============================================
+   SOCIAL LINKS SECTION
+   ============================================ */
+.social-links {
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.social-icons a {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--coffee-brown);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: var(--coffee-cream);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    background-color: var(--coffee-accent);
+    color: var(--text-light);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(193, 122, 92, 0.3);
+}
+
+/* ============================================
+   QUICK LINKS SECTION
+   ============================================ */
+.quick-links ul {
+    list-style: none;
+}
+
+.quick-links li {
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.quick-links li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--coffee-accent);
+    font-weight: bold;
+}
+
+.quick-links a {
+    color: var(--coffee-light);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.quick-links a:hover {
+    color: var(--coffee-cream);
+    padding-left: 0.5rem;
+}
+
+/* ============================================
+   NEWSLETTER SECTION
+   ============================================ */
+#newsletterForm {
+    display: flex;
+    gap: 8px;
+}
+
+#newsletterForm input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid var(--coffee-medium);
+    border-radius: 6px;
+    background-color: var(--coffee-bg);
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+#newsletterForm input:focus {
+    outline: none;
+    border-color: var(--coffee-accent);
+    background-color: white;
+    box-shadow: 0 0 10px rgba(193, 122, 92, 0.2);
+}
+
+#newsletterForm button {
+    padding: 12px 25px;
+    background-color: var(--coffee-accent);
+    color: var(--text-light);
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+#newsletterForm button:hover {
+    background-color: var(--coffee-brown);
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   FOOTER BOTTOM
+   ============================================ */
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--coffee-medium);
+    color: var(--coffee-light);
+    font-size: 0.95rem;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+    .footer {
+        padding: 3rem 20px 1.5rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .social-links {
+        order: 1;
+    }
+
+    .quick-links {
+        order: 2;
+    }
+
+    .newsletter {
+        order: 3;
+    }
+
+    #newsletterForm {
+        flex-direction: column;
+    }
+
+    #newsletterForm input,
+    #newsletterForm button {
+        width: 100%;
+    }
+
+    .social-icons {
+        gap: 1.5rem;
+    }
+
+    .social-icons a {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 2rem 15px 1rem;
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-section h3 {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .quick-links li {
+        margin-bottom: 0.75rem;
+    }
+
+    .footer-bottom {
+        padding-top: 1.5rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.footer-section {
+    animation: fadeInUp 0.6s ease;
+}
+
+.footer-section:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.footer-section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.footer-section:nth-child(3) {
+    animation-delay: 0.3s;
+}
