@@ -86,7 +86,7 @@ function createBlogCard(blog) {
     card.addEventListener('click', function() {
         // Store blog data in sessionStorage
         sessionStorage.setItem('selectedBlog', JSON.stringify(blog));
-        window.location.href = `./pages/full-blog.html?id=${blog.id}`;
+        window.location.href = `./full-blog.html?id=${blog.id}`;
     });
     
     return card;
@@ -133,3 +133,4 @@ window.getBlogById = getBlogById;
 window.scrollToTop = scrollToTop;
 window.formatDate = formatDate;
 window.formatCategory = formatCategory;
+

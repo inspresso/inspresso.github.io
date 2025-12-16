@@ -308,7 +308,7 @@ function showBlogNotFound() {
             <i class="fas fa-file-slash" style="font-size: 4rem; color: var(--coffee-light); margin-bottom: 1rem;"></i>
             <h2 style="color: var(--coffee-dark);">Blog Not Found</h2>
             <p style="color: var(--coffee-medium); margin-bottom: 2rem;">Sorry, we couldn't find the blog you're looking for.</p>
-            <a href="/" style="background-color: var(--coffee-accent); color: var(--text-light); padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600;">Go to Home</a>
+            <a href="./index.html" style="background-color: var(--coffee-accent); color: var(--text-light); padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600;">Go to Home</a>
         </div>
     `;
 }
@@ -319,3 +319,4 @@ window.displayBlog = displayBlog;
 window.submitComment = submitComment;
 window.shareBlog = shareBlog;
 window.copyBlogLink = copyBlogLink;
+
