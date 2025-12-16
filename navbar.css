@@ -134,6 +134,9 @@
    ============================================ */
 .sidebar-content {
     padding: 0 1rem;
+    max-height: calc(100vh - 280px); /* Account for header and footer space */
+    overflow-y: auto;
+    padding-bottom: 140px; /* Ensure space above footer */
 }
 
 .category {
